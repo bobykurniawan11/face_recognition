@@ -30,8 +30,14 @@ while True:
 		prediction=model.predict(img)
 		classIndex=model.predict_step(img)
 		probabilityValue=np.amax(prediction)
-		
-		print(classIndex)
+		if classIndex==0:
+			cv2.rectangle(imgOrignal,(x,y),(x+w,y+h),(0,255,0),2)
+			cv2.rectangle(imgOrignal, (x,y-40),(x+w, y), (0,255,0),-2)
+			cv2.putText(imgOrignal, str(get_className(classIndex)),(x,y-10), font, 0.75, (255,255,255),1, cv2.LINE_AA)
+		elif classIndex==1:
+			cv2.rectangle(imgOrignal,(x,y),(x+w,y+h),(0,255,0),2)
+			cv2.rectangle(imgOrignal, (x,y-40),(x+w, y), (0,255,0),-2)
+			cv2.putText(imgOrignal, str(get_className(classIndex)),(x,y-10), font, 0.75, (255,255,255),1, cv2.LINE_AA)
 
 		cv2.putText(imgOrignal,str(round(probabilityValue*100, 2))+"%" ,(180, 75), font, 0.75, (255,0,0),2, cv2.LINE_AA)
 	cv2.imshow("Result",imgOrignal)
