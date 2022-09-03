@@ -40,7 +40,7 @@ while True:
 			cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 3)
 		cv2.imshow("WindowFrame", frame)
 		cv2.waitKey(1)
-		if count>500:
+		if count>50:
 			break
 	
 video.release()

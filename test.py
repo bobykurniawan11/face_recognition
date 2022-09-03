@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import numpy as np
 
-names = [ 'Boby' , "WHO ?"]
+names = [ 'Boby' , "Yolanda"]
 
 facedetect = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
